@@ -9,20 +9,6 @@ app.use(cors());
 
 const repositories = [];
 
-// function validateProjectId(request, response, next) {
-//   const { id } = request.params;
-
-//   if (!isUuid(id)) {
-//     return response.status(400).json({error: "Invalid project ID"});
-//   }
-
-//   return next();
-// }
-
-// app.use("/repositories/:id", validateProjectId);
-
-
-
 app.get("/repositories", (request, response) => {
   
   return response.json(repositories);
@@ -51,7 +37,7 @@ app.put("/repositories/:id", (request, response) => {
   const repositorieIndex = repositories.findIndex(repositorie => repositorie.id === id)
 
   if(repositorieIndex < 0) {
-    return response.status(400).json({error: "Project not found"})
+    return response.status(400).json({error: "Repositorie not found"})
   }
 
   let repositorie = repositories[repositorieIndex] 
