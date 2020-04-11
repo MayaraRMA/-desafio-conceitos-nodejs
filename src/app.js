@@ -9,10 +9,23 @@ app.use(cors());
 
 const repositories = [];
 
+// function validateProjectId(request, response, next) {
+//   const { id } = request.params;
+
+//   if (!isUuid(id)) {
+//     return response.status(400).json({error: "Invalid project ID"});
+//   }
+
+//   return next();
+// }
+
+// app.use("/repositories/:id", validateProjectId);
+
+
+
 app.get("/repositories", (request, response) => {
   
   return response.json(repositories);
-  // TODO
 });
 
 app.post("/repositories", (request, response) => {
@@ -29,8 +42,6 @@ app.post("/repositories", (request, response) => {
   repositories.push(repositorie);
 
   return response.status(201).json(repositorie);
-
-  // TODO
 });
 
 app.put("/repositories/:id", (request, response) => {
@@ -52,7 +63,6 @@ app.put("/repositories/:id", (request, response) => {
   })
 
   return response.json(repositorie);
-  // TODO
 });
 
 app.delete("/repositories/:id", (request, response) => {
